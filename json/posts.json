@@ -1,7 +1,12 @@
 [
     {
-        "id": "1",
-        "title": "Primeiro post",
-        "content": "Primeiro content via JSON no Next.JS"
+        "id": "",
+        "createdAt": "",
+        "author": "",
+        "title": "",
+        "content": "",
+        "font": "",
+        "images": [],
+        "videos": []
     }
 ]
