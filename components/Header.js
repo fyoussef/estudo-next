@@ -14,14 +14,14 @@ function Header() {
                 <div className="flex items-center">
                     <HeaderItem item='Home'/>
                     <HeaderItem item='Sobre'/>
-
-                    <HeaderIcons link="https://github.com/fyoussef">
-                        <BsGithub className="group-hover:animate-bounce text-2xl hover:text-gray-500 cursor-pointer" />
-                    </HeaderIcons>
-                    <HeaderIcons link="https://www.instagram.com/yousseffilipi/">
-                        <BsInstagram className="group-hover:animate-bounce text-2xl hover:text-gray-500 cursor-pointer" />
-                    </HeaderIcons>
-                    
+                    <div className="flex border-l border-slate-200">
+                        <HeaderIcons link="https://github.com/fyoussef">
+                            <BsGithub className="group-hover:animate-bounce text-2xl hover:text-gray-500 cursor-pointer" />
+                        </HeaderIcons>
+                        <HeaderIcons link="https://www.instagram.com/yousseffilipi/">
+                            <BsInstagram className="group-hover:animate-bounce text-2xl hover:text-gray-500 cursor-pointer" />
+                        </HeaderIcons>
+                    </div>
                 </div>
 
             </header>
