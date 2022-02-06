@@ -5,7 +5,10 @@ function HeaderIcons({ children, link }) {
     return(
         <div className="group pl-5" >
             <Link href={link}>
-                {children}
+                <a>
+                    {children}
+                </a>
+                
             </Link>
         </div>
     )
