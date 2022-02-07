@@ -15,7 +15,7 @@ function PostsSection({ posts }) {
               </h3>
               <p className="py-5 text-gray-500">
                 {post.content.length > 110 ? `${post.content.substring(0, 110)}... ` : post.content}
-                <Link href='/post1'>
+                <Link href={`/posts/${post.id}`}>
                   <a className="text-neutral-900 cursor-pointer hover:text-sky-500 hover:font-semibold">ver mais</a>
                 </Link>
               </p>
