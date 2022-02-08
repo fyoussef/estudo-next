@@ -10,8 +10,11 @@ function Post({ posts }) {
             <Header/>
 
             <HomeSection text={posts.title} />
-            <div className='flex max-w-3xl mx-auto mt-16'>
-                <p className=''>{posts.content}</p>
+            <div className='max-w-3xl mx-auto mt-16'>
+                <p className='mb-5'>{posts.paragraphs[0]}</p>
+                <h2 className='font-semibold mb-5'>{posts['sub-title']}</h2>
+                <p className='mb-5'>{posts.paragraphs[1]}</p>
+                <p className='mb-5'>{posts.paragraphs[2]}</p>
             </div>
 
         </div>
