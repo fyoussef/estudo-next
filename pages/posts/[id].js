@@ -34,7 +34,7 @@ export async function getStaticProps({ params }) {
   
     return {
       props: {
-        posts: data.find(item => item.id === params.id)
+        posts: data.find(post => post.id === params.id)
       },
     }
 }
