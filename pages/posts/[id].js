@@ -11,10 +11,11 @@ function Post({ posts }) {
 
             <HomeSection text={posts.title} />
             <div className='max-w-3xl mx-auto mt-16'>
-                <p className='mb-5'>{posts.paragraphs[0]}</p>
+                <p className='mb-5'>{posts.introduction}</p>
                 <h2 className='font-semibold mb-5'>{posts['sub-title']}</h2>
-                <p className='mb-5'>{posts.paragraphs[1]}</p>
-                <p className='mb-5'>{posts.paragraphs[2]}</p>
+                {posts.paragraphs.map((paragraph, key) => (
+                    <p className='mb-5' key={key}>{paragraph}</p>    
+                ))}
             </div>
 
         </div>
@@ -39,7 +40,7 @@ export async function getStaticProps({ params }) {
 }
 
 // This function gets called at build time
-// FUnção chamada para criar as rotas dinâmicas
+// Funnção chamada para criar as rotas dinâmicas
 export async function getStaticPaths() {
 
     // Pegar os posts
