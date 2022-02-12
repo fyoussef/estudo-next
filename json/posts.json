@@ -4,10 +4,25 @@
         "createdAt": "05/02/2022",
         "author": "Filipi Youssef (fyoussef)",
         "title": "Início - Next.js",
+        "introduction": "O Next.js é um framework React desenvolvido pela Vercel que nos ultimos tempos tem ganhado a atenção dos desenvolvedores WEB por tratar de assunstos importantes como por exemplo o SEO (Search Engine Optimization) utilizando o react como base.",
         "sub-title": "Mas porque o Next e não o React ?",
-        "paragraphs": ["O Next.js é um framework React desenvolvido pela Vercel que nos ultimos tempos tem ganhado a atenção dos desenvolvedores WEB por tratar de assunstos importantes como por exemplo o SEO (Search Engine Optimization) utilizando o react como base.", "Bom, o React trata suas aplicações como SPA (Single Page Application) que cria um código Javascript com os componentes HTML que será renderizado no lado do cliente, ou seja, aquela página não existe enquanto não for requisitada. Infelizmente para os motores de busca do Google, Bing e outros, não é o essencial pois quando esses motores forem fazer o ranqueamento das páginas, a aplicação SPA que tecnicamente ainda não existe, irá passar em branco por esses motores de busca fazendo com que a sua aplicação WEB não esteja visível para o mundo.", "Já o Next veio para ajudar o React proporcionando o SSR (Server Side Rendering) que basicamente irá gerar o conteúdo no lado do servidor e quando for requisitado o conteúdo venha pronto pra o cliente. O Next também proporciona a geração de conteúdo estático com o SSG(Static Site Generation) que irá dar um belo empurrão para um site que precise de conteúdo estático que não terá necessidade de alterações dinâmicas que consequentemente irá ajudar na indexação do site nos motores de busca."],
+        "paragraphs": ["Bom, o React trata suas aplicações como SPA (Single Page Application) que cria um código Javascript com os componentes HTML que será renderizado no lado do cliente, ou seja, aquela página não existe enquanto não for requisitada. Infelizmente para os motores de busca do Google, Bing e outros, não é o essencial pois quando esses motores forem fazer o ranqueamento das páginas, a aplicação SPA que tecnicamente ainda não existe, irá passar em branco por esses motores de busca fazendo com que a sua aplicação WEB não esteja visível para o mundo.", "Já o Next veio para ajudar o React proporcionando o SSR (Server Side Rendering) que basicamente irá gerar o conteúdo no lado do servidor e quando for requisitado o conteúdo venha pronto pra o cliente. O Next também proporciona a geração de conteúdo estático com o SSG(Static Site Generation) que irá dar um belo empurrão para um site que precise de conteúdo estático que não terá necessidade de alterações dinâmicas que consequentemente irá ajudar na indexação do site nos motores de busca."],
+        "font": "",
+        "images": [],
+        "videos": []
+    },
+
+    {
+        "id": "2",
+        "createdAt": "10/02/2022",
+        "author": "Filipi Youssef (fyoussef)",
+        "title": "Sistema de rotas do Next",
+        "introduction": "",
+        "sub-title": "",
+        "paragraphs": ["O next utiliza o File-system routing para gerar as rotas do seu site automaticamente então nós temos uma pasta chamada pages onde cada post/arquivo criados dentro dela irá automaticamente se tornar uma página web. Por exemplo: pages/produtos/caneta.js -> seusite.com.br/produtos/caneta", "E dentro da pasta pages também temos uma pasta chamada 'API' que tem praticamente a mesma função só que ao invés de sites o next gera rotas(com o node por de baixo dos panos). Por exemplo: pages/api/produtos.js -> seusite.com.br/api/produtos", "Com essas funcionalidades o next acaba ajudando muito os desenvolvedores, mas por outro lado acaba nos limitanto como por exemplo para 1 site de produtos cada vez que tiver um produto novo ir em pages e criar um novo arquivo para o produto. Até functiona quando são poucos maspara quantidades maiores acaba se tornando inviavel está forma.", "Mas para isso o next tabém tem a solução qye pe utilizando parâmetros dinâmicos. Ao criar o novo arquivo para os seus produtos basta passar o nome do arquivo da seguinte forma. Exemplo: [parâmetro_dinâmico].js -> seusite.com.br/produtos/1, 2, 3...", "Desta forma você já será capaz de pegar o parametro passado na requisição utilizando o Hook do next chamado 'useRouter', que irá trazer o parâmetro passado que poderá ser usado para a criação da página/api sem ter que fazer manualmente"],
         "font": "",
         "images": [],
         "videos": []
     }
+
 ]
