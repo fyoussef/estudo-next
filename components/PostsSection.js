@@ -9,7 +9,7 @@ function PostsSection({ posts }) {
           {posts.map((post, key) => (
             <div key={key}>
               <h3 key={key}
-                  className="text-slate-900 font-semibold text-2xl sm:text-2xl lg:text-2xl tracking-tight dark:text-white"
+                  className="text-slate-900 font-semibold text-2xl sm:text-2xl lg:text-2xl tracking-tight"
                 >
                 {post.title}
               </h3>
