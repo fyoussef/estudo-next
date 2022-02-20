@@ -1,6 +1,6 @@
 
 import axios from 'axios'
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import Header from '../components/Header';
 import HomeSection from '../components/HomeSection'
@@ -8,8 +8,8 @@ import PostsSection from '../components/PostsSection';
 
 export default function Home(props) {
 
-
   const { posts } = props;
+
 
   const [post, setPost] = useState(posts);
 
@@ -31,15 +31,26 @@ export default function Home(props) {
   )
 }
 
-
-export async function getStaticProps(context) {
-
-  const post = await axios.get('http://localhost:3000/api/posts');
-  const { data } = post;
+export async function getServerSideProps(context) {
+  const post = await axios.get('http://localhost:3000/api/getAllPosts')
+  const { posts } = post.data
 
   return {
     props: {
-      posts: data
-    },
+      posts: posts
+    }
   }
+
 }
+
+// export async function getStaticProps(context) {
+
+//   const post = await axios.get('http://localhost:3000/api/posts');
+//   const { data } = post;
+
+//   return {
+//     props: {
+//       posts: data
+//     },
+//   }
+// }
