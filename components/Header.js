@@ -42,6 +42,12 @@ function Header() {
                         </div>
                     </div>
 
+                    <div class="flex items-center justify-between">
+                        <button className="bg-slate-900 hover:bg-slate-700 text-white font-bold py-2 w-32 rounded" type="button">
+                            Login
+                        </button>
+                    </div>
+
                 </header>
             </div>
             <div className="w-full h-px bg-gray-200" style={{opacity: '1', transformOrigin: '50% 50% 0px'}}></div>
