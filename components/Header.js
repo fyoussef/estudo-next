@@ -42,9 +42,13 @@ function Header() {
                         </div>
                     </div>
 
-                    <div class="flex items-center justify-between">
+                    <div className="flex items-center justify-between">
                         <button className="bg-slate-900 hover:bg-slate-700 text-white font-bold py-2 w-32 rounded" type="button">
-                            Login
+                            <Link href='/login'>
+                                <a>
+                                    Login
+                                </a>
+                            </Link>
                         </button>
                     </div>
 
