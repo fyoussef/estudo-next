@@ -1,6 +1,6 @@
 
 
-export function InputText({ label, placeholder, handleText }) {
+export function InputText({ label, placeholder, handleText, value }) {
     return (
 
         <div className="mb-8 xl:w-96">
@@ -28,13 +28,14 @@ export function InputText({ label, placeholder, handleText }) {
             "
             placeholder={placeholder}
             onChange={handleText}
+            value={value}
             />
         </div>
 
     )
 }
 
-export function InputTextArea({ label, placeholder, rows, handleText }){
+export function InputTextArea({ label, placeholder, rows, handleText, value }){
 
     return (
 
@@ -63,6 +64,7 @@ export function InputTextArea({ label, placeholder, rows, handleText }){
             rows={rows}
             placeholder={placeholder}
             onChange={handleText}
+            value={value}
             >
             </textarea>
         </div>

@@ -7,7 +7,7 @@ export default async function createPost(req, res){
         const { db } = await connectDB()
 
 
-        const dados =  JSON.parse(req.body.body)
+        const dados =  JSON.parse(req.body.post)
 
         dados.postContent = dados.postContent.split('\n')
 
