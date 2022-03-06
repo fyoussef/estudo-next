@@ -12,10 +12,14 @@ function Post({ posts }) {
             <HomeSection text={posts.title} />
             <div className='max-w-3xl mx-auto mt-16'>
                 <p className='mb-5'>{posts.introduction}</p>
-                <h2 className='font-semibold mb-5'>{posts['sub-title']}</h2>
-                {posts.paragraphs.map((paragraph, key) => (
-                    <p className='mb-5' key={key}>{paragraph}</p>    
-                ))}
+                <h2 className='font-semibold mb-5'>{posts.subTitle}</h2>
+                {
+                    
+                    posts.postContent.map((paragraph, key) => (
+                        <p className='mb-5' key={key}>{paragraph}</p>
+                    ))
+                }
+                
             </div>
 
         </div>
