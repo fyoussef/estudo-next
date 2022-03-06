@@ -6,7 +6,13 @@ import { BsGithub, BsInstagram } from 'react-icons/bs'
 import HeaderIcons from "./HeaderIcons"
 import Link from 'next/link'
 
+import { useSession, signIn, signOut } from "next-auth/react"
+
+
 function Header() {
+
+    const { data: session } = useSession()
+
     return (
         <div>
             <Head>
@@ -26,12 +32,17 @@ function Header() {
                     </div>
 
                     <div className="flex items-center">
-                        <Link href='/'>
-                            <a>
-                                <HeaderItem item='Home'/>
-                            </a>
-                        </Link>
+
+                        {/* <Link href='/'>
+                            <a> */}
+                                <HeaderItem item='Home' route='/'/>
+                            {/* </a>
+                        </Link> */}
+
                         <HeaderItem item='Sobre'/>
+
+                        { session && session.user.name === 'Filipi Youssef' ? <HeaderItem item='Novo Post' route='/posts/newPost'/> : '' }
+                        
                         <div className="flex border-l border-slate-200">
                             <HeaderIcons link={"https://github.com/fyoussef"}>
                                 <BsGithub className="group-hover:animate-bounce text-2xl hover:text-gray-500 cursor-pointer" />
@@ -43,12 +54,17 @@ function Header() {
                     </div>
 
                     <div className="flex items-center justify-between">
-                        <button className="bg-slate-900 hover:bg-slate-700 text-white font-bold py-2 w-32 rounded" type="button">
-                            <Link href='/login'>
+                        <button type="button" 
+                                className="flex items-center justify-evenly bg-slate-900 hover:bg-slate-700 text-white font-bold py-2 w-32 rounded"
+                                onClick={() => session ? signOut() : signIn()}
+                            >
+                            {/* <Link href='/login'>
                                 <a>
                                     Login
                                 </a>
-                            </Link>
+                            </Link> */}
+                            <BsGithub className="text-2xl" />
+                            { session && session.user.name === 'Filipi Youssef' ? 'SignOut' : 'Login' }
                         </button>
                     </div>
 
