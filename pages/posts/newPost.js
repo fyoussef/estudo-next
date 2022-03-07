@@ -43,7 +43,6 @@ export default function NewPost() {
 
         }
         
-
     }
 
     return (
@@ -55,7 +54,7 @@ export default function NewPost() {
                     <InputText label="Título" 
                                placeholder="Título do Post" 
                                value={title}
-                               handleText={(event => setTitle(event.target.value))} 
+                               handleText={(event => setTitle(event.target.value))}
                             />
 
                     <InputText label="Sub-Título" 
@@ -79,7 +78,7 @@ export default function NewPost() {
                                 />
 
                     <button type="submit" 
-                            className="flex items-center justify-evenly bg-violet-700 hover:bg-violet-900 text-white font-bold py-2 w-32 rounded xl:w-96">
+                            className="flex  justify-evenly bg-violet-700 hover:bg-violet-900 text-white font-bold py-2 w-32 rounded xl:w-96 lg:w-72 md:w-64 sm:w-56">
                         Salvar Post
                     </button>
                 </form>
