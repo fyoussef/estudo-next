@@ -3,6 +3,7 @@ import Head from 'next/head'
 
 import HeaderItem from "./HeaderItem"
 import { BsGithub, BsInstagram } from 'react-icons/bs'
+import { BiMenu } from 'react-icons/bi'
 import HeaderIcons from "./HeaderIcons"
 
 import { useSession, signIn, signOut } from "next-auth/react"
@@ -26,14 +27,14 @@ function Header() {
                 <link rel="icon" href="/favicon.ico" />
             </Head>
         
-            <div className="mt-3 ">
+            <div className="mt-3">
                 <header className="flex p-5 justify-evenly items-center">
 
                     <div>
                         <h2 className="text-3xl	font-bold">BLOG</h2>
                     </div>
 
-                    <div className="flex items-center">
+                    <div className="flex items-center xs:hidden">
 
                         <HeaderItem item='Home' route='/'/>
 
@@ -51,7 +52,7 @@ function Header() {
                         </div>
                     </div>
                     
-                    <div className="flex items-center justify-between">
+                    <div className="flex items-center justify-between xs:hidden">
                         <button type="button"
                                 className="flex items-center justify-evenly bg-slate-900 hover:bg-slate-700 text-white font-bold py-2 w-32 rounded"
                                 onClick={() => session ? signOut() : signIn()}
@@ -60,6 +61,11 @@ function Header() {
                             { session && session.user.name === 'Filipi Youssef' ? 'SignOut' : 'Login' }
                         </button>
                     </div>
+
+                    <button className='xl:hidden lg:hidden md:hidden'>
+                        < BiMenu />
+                    </button>
+
 
                 </header>
             </div>

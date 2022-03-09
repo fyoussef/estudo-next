@@ -4,7 +4,7 @@ function PostsSection({ posts }) {
 
     return(
         // CONTAINER DOS POSTS
-        <div className='mx-auto max-w-3xl mt-40'>
+        <div className='mx-auto xl:max-w-3xl lg:max-w-3xl md:max-w-2xl mt-40 sm:max-w-sm xs:max-w-xs'>
           {/* CADA POST VEM AQUI */}
           {posts.map((post, key) => (
             <div key={key}>

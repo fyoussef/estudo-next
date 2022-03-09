@@ -78,7 +78,7 @@ export default function NewPost() {
                                 />
 
                     <button type="submit" 
-                            className="flex  justify-evenly bg-violet-700 hover:bg-violet-900 text-white font-bold py-2 w-32 rounded xl:w-96 lg:w-72 md:w-64 sm:w-56">
+                            className="flex justify-evenly bg-violet-700 hover:bg-violet-900 text-white font-bold py-2 w-32 xl:w-96 lg:w-72 md:w-64 sm:w-56 xs:w-full rounded">
                         Salvar Post
                     </button>
                 </form>
