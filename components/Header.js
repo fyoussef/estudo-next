@@ -2,6 +2,8 @@
 import Head from 'next/head'
 
 import HeaderItem from "./HeaderItem"
+import MobileHeader from './MobileHeader'
+
 import { BsGithub, BsInstagram } from 'react-icons/bs'
 import { BiMenu } from 'react-icons/bi'
 import HeaderIcons from "./HeaderIcons"
@@ -27,7 +29,7 @@ function Header() {
                 <link rel="icon" href="/favicon.ico" />
             </Head>
         
-            <div className="mt-3">
+            <div className="mt-3 relative">
                 <header className="flex p-5 justify-evenly items-center">
 
                     <div>
@@ -57,12 +59,12 @@ function Header() {
                                 className="flex items-center justify-evenly bg-slate-900 hover:bg-slate-700 text-white font-bold py-2 w-32 rounded"
                                 onClick={() => session ? signOut() : signIn()}
                             >
-                            <BsGithub className="text-2xl" />
+                            <BsGithub className="text-2xl " />
                             { session && session.user.name === 'Filipi Youssef' ? 'SignOut' : 'Login' }
                         </button>
                     </div>
 
-                    <button className='xl:hidden lg:hidden md:hidden'>
+                    <button className='xl:hidden lg:hidden md:hidden text-3xl hover:text-slate-700'>
                         < BiMenu />
                     </button>
 
@@ -70,6 +72,9 @@ function Header() {
                 </header>
             </div>
             <div className="w-full h-px bg-gray-200" style={{opacity: '1', transformOrigin: '50% 50% 0px'}}></div>
+
+            {/* <MobileHeader session={session}/> */}
+
         </div>
 
     )
