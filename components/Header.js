@@ -6,14 +6,16 @@ import MobileHeader from './MobileHeader'
 
 import { BsGithub, BsInstagram } from 'react-icons/bs'
 import { BiMenu } from 'react-icons/bi'
+import { FaTimes } from 'react-icons/fa'
 import HeaderIcons from "./HeaderIcons"
 
 import { useSession, signIn, signOut } from "next-auth/react"
-
+import { useState } from 'react'
 
 function Header() {
 
     const { data: session } = useSession()
+    const [showMenu, setShowMenu] = useState(true)
 
     return (
         <div>
@@ -64,8 +66,10 @@ function Header() {
                         </button>
                     </div>
 
-                    <button className='xl:hidden lg:hidden md:hidden text-3xl hover:text-slate-700'>
-                        < BiMenu />
+                    <button className='xl:hidden lg:hidden md:hidden text-3xl hover:text-slate-700'
+                            onClick={() => setShowMenu(!showMenu)}
+                        >
+                        {showMenu ? < BiMenu /> : <FaTimes/>}
                     </button>
 
 
@@ -73,7 +77,7 @@ function Header() {
             </div>
             <div className="w-full h-px bg-gray-200" style={{opacity: '1', transformOrigin: '50% 50% 0px'}}></div>
 
-            {/* <MobileHeader session={session}/> */}
+            {showMenu ? <MobileHeader session={session}/> : ''}
 
         </div>
 
