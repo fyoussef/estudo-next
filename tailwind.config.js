@@ -26,7 +26,5 @@ module.exports = {
       ...defaultTheme.screens
     }
   },
-  plugins: [
-    'tailwindcss-defaultTheme'
-  ],
+  plugins: [],
 }

@@ -4,6 +4,7 @@ import axios from 'axios'
 
 import Header from '../../components/Header';
 import { InputText, InputTextArea } from '../../components/Inputs';
+import Spinner from '../../components/Spinner';
 
 export default function NewPost() {
 
@@ -11,6 +12,8 @@ export default function NewPost() {
     const [subTitle, setSubTitle] = useState('')
     const [introduction, setIntroduction] = useState('')
     const [postContent, setPostContent] = useState('')
+
+    const [clicked, setClicked] = useState(false);
 
     async function registerPost(event) {
 
@@ -40,7 +43,7 @@ export default function NewPost() {
             setSubTitle('')
             setIntroduction('')
             setPostContent('')
-
+            setClicked(false)
         }
         
     }
@@ -49,7 +52,7 @@ export default function NewPost() {
         <div>
             <Header />
 
-            <div className="flex flex-col items-center justify-center mt-20">
+            <div className="flex flex-col items-center justify-center mt-20 pb-5">
                 <form onSubmit={registerPost}>
                     <InputText label="Título" 
                                placeholder="Título do Post" 
@@ -77,9 +80,12 @@ export default function NewPost() {
                                    handleText={(event => setPostContent(event.target.value))}
                                 />
 
+                    
                     <button type="submit" 
-                            className="flex justify-evenly bg-violet-700 hover:bg-violet-900 text-white font-bold py-2 w-32 xl:w-96 lg:w-72 md:w-64 sm:w-56 xs:w-full rounded">
-                        Salvar Post
+                            className="flex justify-evenly bg-violet-700 hover:bg-violet-900 text-white font-bold py-2 w-32 xl:w-96 lg:w-72 md:w-64 sm:w-56 xs:w-full rounded"
+                            onClick={() => setClicked(!clicked)}
+                            >
+                            {clicked ? <Spinner/> : 'Salvar Post'}
                     </button>
                 </form>
 

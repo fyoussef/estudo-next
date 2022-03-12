@@ -1,12 +1,22 @@
-import Link from 'next/link'
 
-function PostsSection({ posts }) {
+import Link from 'next/link'
+import { useSession } from "next-auth/react"
+
+import { useState } from 'react'
+
+import { BtnDeletePost } from './Buttons'
+
+function PostsSection({posts}) {
+
+    const { data: session } = useSession()
+
+    const [ allPosts, setAllPosts ] = useState(posts)
 
     return(
         // CONTAINER DOS POSTS
         <div className='mx-auto mt-20 xl:max-w-4xl lg:max-w-3xl md:max-w-2xl sm:max-w-sm xs:max-w-xs'>
           {/* CADA POST VEM AQUI */}
-          {posts.map((post, key) => (
+          {allPosts.map((post, key) => (
             <div key={key}>
               <h3 key={key}
                   className="text-slate-900 font-semibold text-2xl sm:text-2xl lg:text-2xl tracking-tight"
@@ -16,11 +26,18 @@ function PostsSection({ posts }) {
               <p className="py-5 text-gray-500">
                 {post.introduction.length > 200 ? `${post.introduction.substring(0, 200)}... ` : post.introduction}
                 <Link href={`/posts/${post['_id']}`}>
-                  <a className="text-neutral-900 cursor-pointer hover:text-sky-500 hover:font-semibold">ver mais</a>
+                  <a className="text-neutral-900 cursor-pointer hover:text-sky-500 hover:font-semibold"> ver mais</a>
                 </Link>
               </p>
-              <p>{post.createdAt}</p>
-              <p className='mb-5'>{post.author}</p>
+              <div className='flex justify-between'>
+                <div>
+                  <p>{post.createdAt}</p>
+                  <p className='mb-5'>{post.author}</p>
+                </div>
+
+                { session && session.user.name === 'Filipi Youssef' ?  <BtnDeletePost id={post['_id']} setAllPosts={setAllPosts} /> : ''}
+                
+              </div>
             </div>
           ))}
         </div>
