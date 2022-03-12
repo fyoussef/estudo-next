@@ -15,7 +15,7 @@ import { useState } from 'react'
 function Header() {
 
     const { data: session } = useSession()
-    const [showMenu, setShowMenu] = useState(true)
+    const [isMenuOpen, setIsMenuOpen] = useState(false)
 
     return (
         <div>
@@ -67,9 +67,9 @@ function Header() {
                     </div>
 
                     <button className='xl:hidden lg:hidden md:hidden text-3xl hover:text-slate-700'
-                            onClick={() => setShowMenu(!showMenu)}
+                            onClick={() => setIsMenuOpen(!isMenuOpen)}
                         >
-                        {showMenu ? < BiMenu /> : <FaTimes/>}
+                        {isMenuOpen ? <FaTimes/> : < BiMenu />}
                     </button>
 
 
@@ -77,7 +77,7 @@ function Header() {
             </div>
             <div className="w-full h-px bg-gray-200" style={{opacity: '1', transformOrigin: '50% 50% 0px'}}></div>
 
-            {showMenu ? <MobileHeader session={session}/> : ''}
+            {isMenuOpen ? <MobileHeader session={session}/> : ''}
 
         </div>
 

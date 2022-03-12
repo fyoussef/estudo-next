@@ -4,6 +4,8 @@ import HeaderItem from "./HeaderItem"
 
 import { BsGithub } from 'react-icons/bs'
 
+import { signIn, signOut } from "next-auth/react"
+
 export default function MobileHeader({session}){
     return (
         <div className='absolute w-full h-1/2 bg-slate-200'>
