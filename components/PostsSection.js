@@ -4,7 +4,7 @@ import { useSession } from "next-auth/react"
 
 import { useState } from 'react'
 
-import { BtnDeletePost } from './Buttons'
+import { BtnDeletePost, BtnEditPost } from './Buttons'
 
 function PostsSection({posts}) {
 
@@ -34,9 +34,10 @@ function PostsSection({posts}) {
                   <p>{post.createdAt}</p>
                   <p className='mb-5'>{post.author}</p>
                 </div>
-
-                { session && session.user.name === 'Filipi Youssef' ?  <BtnDeletePost id={post['_id']} setAllPosts={setAllPosts} /> : ''}
-                
+                <div className='flex gap-3'>
+                  { session && session.user.name === 'Filipi Youssef' ?  <BtnDeletePost id={post['_id']} setAllPosts={setAllPosts} /> : ''}
+                  { session && session.user.name === 'Filipi Youssef' ?  <BtnEditPost id={post['_id']} setAllPosts={setAllPosts} route='/posts/newPost' /> : ''}
+                </div>
               </div>
             </div>
           ))}

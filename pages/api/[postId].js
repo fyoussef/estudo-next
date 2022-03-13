@@ -2,10 +2,10 @@ import { ObjectId } from "mongodb";
 import connectDB from "../../utils/connection";
 
 export default async function deletePost (req, res){
-    
-    if(req.method === 'DELETE'){
 
-        const { postId } = req.query
+    const { postId } = req.query
+    
+    if( req.method === 'DELETE' ){
 
         const { db } = await connectDB()
 
@@ -15,6 +15,16 @@ export default async function deletePost (req, res){
         return res.status(200).json({deleted: true})
 
 
-    } else return res.status(400).json({message: 'Bad method request'})
+    } else if( req.method === 'GET' ){
+
+        const { db } = await connectDB()
+
+        const post = await db.collection("blog").find({"_id": ObjectId(postId)}).toArray()
+
+        return res.status(200).json({post: post})
+
+    }
+    
+    else return res.status(400).json({message: 'Bad method request'})
 
 }
