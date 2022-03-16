@@ -41,18 +41,9 @@ export function BtnDeletePost ({ id, setAllPosts }){
 
 export function BtnEditPost({ id, setAllPosts, route }) {
 
-    async function getPost (e){
-        e.preventDefault()
-
-        const getPost = await axios.get(`http://localhost:3000/api/${id}`)
-        const { post } = getPost.data;
-
-    }
-
     return(
         <button type='submit'
                 className='flex items-center justify-center bg-sky-600  hover:bg-sky-700 duration-300 text-white h-10 w-10 rounded'
-                onClick={getPost}
                 >
                     {route ?
                         <Link href={route}>

@@ -5,6 +5,8 @@ import axios from 'axios';
 
 function Post({ posts }) {
 
+    const postContent = posts.postContent.split('\n')
+
     return(
         <div>
             <Header/>
@@ -15,7 +17,7 @@ function Post({ posts }) {
                 <h2 className='font-semibold mb-5'>{posts.subTitle}</h2>
                 {
                     
-                    posts.postContent.map((paragraph, key) => (
+                    postContent.map((paragraph, key) => (
                         <p className='mb-5' key={key}>{paragraph}</p>
                     ))
                 }

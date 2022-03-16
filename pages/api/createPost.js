@@ -9,7 +9,7 @@ export default async function createPost(req, res){
 
         const dados =  JSON.parse(req.body.post)
 
-        dados.postContent = dados.postContent.split('\n')
+        // dados.postContent = dados.postContent.split('\n')
 
         if( req.body )
             await db.collection("blog").insertOne(dados)

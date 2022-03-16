@@ -36,7 +36,7 @@ function PostsSection({posts}) {
                 </div>
                 <div className='flex gap-3'>
                   { session && session.user.name === 'Filipi Youssef' ?  <BtnDeletePost id={post['_id']} setAllPosts={setAllPosts} /> : ''}
-                  { session && session.user.name === 'Filipi Youssef' ?  <BtnEditPost id={post['_id']} setAllPosts={setAllPosts} route='/posts/newPost' /> : ''}
+                  { session && session.user.name === 'Filipi Youssef' ?  <BtnEditPost id={post['_id']} route={`/posts/updatePost/${post['_id']}`} /> : ''}
                 </div>
               </div>
             </div>
