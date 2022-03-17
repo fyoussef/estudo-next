@@ -24,6 +24,7 @@ export function BtnDeletePost ({ id, setAllPosts }){
         if( deleted ){
             const post = await axios.get('http://localhost:3000/api/getAllPosts')
             const { posts } = post.data
+            setClicked(false)
             setAllPosts(posts)
         }
 
@@ -39,7 +40,7 @@ export function BtnDeletePost ({ id, setAllPosts }){
     )
 }
 
-export function BtnEditPost({ id, setAllPosts, route }) {
+export function BtnEditPost({ route }) {
 
     return(
         <button type='submit'
