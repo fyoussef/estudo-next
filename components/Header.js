@@ -11,11 +11,23 @@ import HeaderIcons from "./HeaderIcons"
 
 import { useSession, signIn, signOut } from "next-auth/react"
 import { useState } from 'react'
+import { useRouter } from 'next/router'
 
 function Header() {
 
     const { data: session } = useSession()
     const [isMenuOpen, setIsMenuOpen] = useState(false)
+
+    const router = useRouter()
+
+    function handleSession() {
+        if ( session ){
+            router.push('/')
+                  .then(() => signOut());
+        } else {
+            signIn()
+        }
+    }
 
     return (
         <div>
@@ -59,7 +71,7 @@ function Header() {
                     <div className="flex items-center justify-between xs:hidden">
                         <button type="button"
                                 className="flex items-center justify-evenly bg-slate-900 hover:bg-slate-700 text-white font-bold py-2 w-32 rounded"
-                                onClick={() => session ? signOut() : signIn()}
+                                onClick={handleSession}
                             >
                             <BsGithub className="text-2xl " />
                             { session && session.user.name === 'Filipi Youssef' ? 'SignOut' : 'Login' }
