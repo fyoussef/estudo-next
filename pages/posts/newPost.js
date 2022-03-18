@@ -5,6 +5,7 @@ import axios from 'axios'
 import Header from '../../components/Header';
 import { InputText, InputTextArea } from '../../components/Inputs';
 import Spinner from '../../components/Spinner';
+import Modal from '../../components/Modal.js';
 
 export default function NewPost() {
 
@@ -14,10 +15,17 @@ export default function NewPost() {
     const [postContent, setPostContent] = useState('')
 
     const [clicked, setClicked] = useState(false);
+    const [openModal, setOpenModal] = useState(false);
 
     async function registerPost(event) {
 
         event.preventDefault()
+
+        if( title == "" && postContent == "" ) {
+            setOpenModal(true)
+            setClicked(false)
+            return
+        }
 
         const currentDate = new Date()
         const currentDateFormated = currentDate.toLocaleString('pt-BR').split(' ')[0]
@@ -44,6 +52,7 @@ export default function NewPost() {
             setIntroduction('')
             setPostContent('')
             setClicked(false)
+
         }
         
     }
@@ -52,7 +61,10 @@ export default function NewPost() {
         <div>
             <Header />
 
+            <Modal openModal={openModal} />
+
             <div className="flex flex-col items-center justify-center mt-20 pb-5">
+
                 <form onSubmit={registerPost}>
                     <InputText label="Título" 
                                placeholder="Título do Post" 
