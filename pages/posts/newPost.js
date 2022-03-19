@@ -21,10 +21,13 @@ export default function NewPost() {
 
         event.preventDefault()
 
-        if( title == "" && postContent == "" ) {
+        if( title == "" || postContent == "" ) {
+
             setOpenModal(true)
+
             setClicked(false)
             return
+        
         }
 
         const currentDate = new Date()
@@ -61,7 +64,8 @@ export default function NewPost() {
         <div>
             <Header />
 
-            <Modal openModal={openModal} />
+            
+            {openModal ? <Modal openModal={openModal} setOpenModal={setOpenModal} /> : ''}
 
             <div className="flex flex-col items-center justify-center mt-20 pb-5">
 

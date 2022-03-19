@@ -3,10 +3,9 @@ import { useState } from 'react';
 import { useRouter } from 'next/router';
 
 import Header from '../../../components/Header';
-
 import { InputText, InputTextArea } from '../../../components/Inputs';
-
 import Spinner from '../../../components/Spinner';
+import Modal from '../../components/Modal.js';
 
 import axios from 'axios';
 
@@ -15,6 +14,8 @@ export default function UpdatePostPage({ post }) {
     const postId = post["_id"]
 
     const router = useRouter();
+
+    const [openModal, setOpenModal] = useState(false);
 
     const [title, setTitle] = useState(post.title);
     const [subTitle, setSubTitle] = useState(post.subTitle)
@@ -25,6 +26,11 @@ export default function UpdatePostPage({ post }) {
 
     async function updatePost(e){
         e.preventDefault()
+
+        if( title == "" || postContent == "" ) {
+            setOpenModal(true)
+            return
+        }
 
         const currentDate = new Date()
         const currentDateFormated = currentDate.toLocaleString('pt-BR').split(' ')[0]
@@ -51,6 +57,8 @@ export default function UpdatePostPage({ post }) {
     return (
         <div>
             <Header />
+
+            <Modal openModal={openModal} />
 
             <div className="flex flex-col items-center justify-center mt-20 pb-5">
                 <form onSubmit={updatePost}>
