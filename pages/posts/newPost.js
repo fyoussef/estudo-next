@@ -5,7 +5,7 @@ import axios from 'axios'
 import Header from '../../components/Header';
 import { InputText, InputTextArea } from '../../components/Inputs';
 import Spinner from '../../components/Spinner';
-import Modal from '../../components/Modal.js';
+import { AtentionModal, SuccessModal } from '../../components/Modal.js';
 
 export default function NewPost() {
 
@@ -16,6 +16,7 @@ export default function NewPost() {
 
     const [clicked, setClicked] = useState(false);
     const [openModal, setOpenModal] = useState(false);
+    const [openSuccessModal, setOpenSuccessModal] = useState(false)
 
     async function registerPost(event) {
 
@@ -56,6 +57,8 @@ export default function NewPost() {
             setPostContent('')
             setClicked(false)
 
+            setOpenSuccessModal(true);
+
         }
         
     }
@@ -65,7 +68,12 @@ export default function NewPost() {
             <Header />
 
             
-            {openModal ? <Modal openModal={openModal} setOpenModal={setOpenModal} /> : ''}
+            {openModal ? <AtentionModal setOpenModal={setOpenModal} 
+                                modalText="Para criar um post é obrigatório ter um Título e conteúdo para o Post."
+                                btnText="ENTENDI"
+                                /> : ''}
+
+            {openSuccessModal  ? <SuccessModal setOpenModal={setOpenSuccessModal} modalText="O Post foi criado com sucesso !" btnText="OK" /> : '' }
 
             <div className="flex flex-col items-center justify-center mt-20 pb-5">
 
