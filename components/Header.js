@@ -54,7 +54,7 @@ function Header() {
 
                         <HeaderItem item='Home' route='/'/>
 
-                        <HeaderItem item='Sobre'/>
+                        <HeaderItem item='Sobre' route='/about' />
 
                         { session && session.user.name === 'Filipi Youssef' ? <HeaderItem item='Novo Post' route='/posts/newPost'/> : '' }
                         
