@@ -5,7 +5,6 @@ import { useRouter } from 'next/router';
 import Header from '../../../components/Header';
 import { InputText, InputTextArea } from '../../../components/Inputs';
 import Spinner from '../../../components/Spinner';
-import Modal from '../../components/Modal.js';
 
 import axios from 'axios';
 
@@ -57,8 +56,6 @@ export default function UpdatePostPage({ post }) {
     return (
         <div>
             <Header />
-
-            <Modal openModal={openModal} />
 
             <div className="flex flex-col items-center justify-center mt-20 pb-5">
                 <form onSubmit={updatePost}>
