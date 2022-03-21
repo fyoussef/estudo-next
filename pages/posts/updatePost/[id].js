@@ -45,7 +45,7 @@ export default function UpdatePostPage({ post }) {
             })
         }
 
-        const updatePost = await axios.put(`http://localhost:3000/api/${postId}`, postStruct)
+        const updatePost = await axios.put(`/api/${postId}`, postStruct)
         const { updated } = updatePost.data
 
         if( updated )
@@ -104,7 +104,7 @@ export async function getServerSideProps(context){
 
     const { id } = context.query
 
-    const getPost = await axios.get(`http://localhost:3000/api/${id}`)
+    const getPost = await axios.get(`${process.env.URL}/api/${id}`)
     const { post } = getPost.data;
 
     return {

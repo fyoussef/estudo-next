@@ -35,7 +35,7 @@ export async function getStaticProps({ params }) {
 
     // params => contem o post.id que foi retornado na func getStaticPaths
 
-    const post = await axios.get('http://localhost:3000/api/getAllPosts')
+    const post = await axios.get(`${process.env.URL}/api/getAllPosts`)
 
     const { posts } = post.data
 
@@ -52,7 +52,7 @@ export async function getStaticProps({ params }) {
 export async function getStaticPaths() {
 
     // Pegar os posts
-    const post = await axios.get('http://localhost:3000/api/getAllPosts')
+    const post = await axios.get(`${process.env.URL}/api/getAllPosts`)
     const { posts } = post.data
 
     // Pegar os caminhos necessaŕios para PRÉ renderizar

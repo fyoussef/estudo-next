@@ -45,7 +45,7 @@ export default function NewPost() {
             })
         }
 
-        const createPost = await axios.post('http://localhost:3000/api/createPost', postStruct)
+        const createPost = await axios.post(`${process.env.URL}/api/createPost`, postStruct)
         
         const { created } = createPost.data
 

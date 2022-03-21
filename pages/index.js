@@ -34,7 +34,7 @@ export default function Home(props) {
 
 export async function getServerSideProps(context) {
 
-  const post = await axios.get('http://localhost:3000/api/getAllPosts')
+  const post = await axios.get(`${process.env.URL}/api/getAllPosts`)
   const { posts } = post.data
 
   return {
@@ -44,15 +44,3 @@ export async function getServerSideProps(context) {
   }
 
 }
-
-// export async function getStaticProps(context) {
-
-//   const post = await axios.get('http://localhost:3000/api/posts');
-//   const { data } = post;
-
-//   return {
-//     props: {
-//       posts: data
-//     },
-//   }
-// }
