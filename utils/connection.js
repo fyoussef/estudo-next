@@ -1,3 +1,4 @@
+import { RuleTester } from 'eslint';
 import { MongoClient } from 'mongodb'
 
 const client = new MongoClient(process.env.DB_URL, {
