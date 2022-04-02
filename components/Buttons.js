@@ -18,11 +18,11 @@ export function BtnDeletePost ({ id, setAllPosts }){
         setClicked(!clicked)
 
         const postId = id
-        const deletePost = await axios.delete(`${process.env.URL}/api/${postId}`);
+        const deletePost = await axios.delete(`/api/${postId}`);
         const { deleted } = deletePost.data
 
         if( deleted ){
-            const post = await axios.get(`${process.env.URL}/api/getAllPosts`)
+            const post = await axios.get(`/api/getAllPosts`)
             const { posts } = post.data
             setClicked(false)
             setAllPosts(posts)

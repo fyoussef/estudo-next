@@ -1,4 +1,3 @@
-
 import Head from 'next/head'
 
 import HeaderItem from "./HeaderItem"
@@ -22,7 +21,7 @@ function Header() {
 
     function handleSession() {
         if ( session ){
-            router.push('/')
+            router.push(`/`)
                   .then(() => signOut());
         } else {
             signIn()
