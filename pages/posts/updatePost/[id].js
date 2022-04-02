@@ -1,4 +1,3 @@
-
 import { useState } from 'react';
 import { useRouter } from 'next/router';
 
@@ -49,7 +48,7 @@ export default function UpdatePostPage({ post }) {
         const { updated } = updatePost.data
 
         if( updated )
-            router.push('/');
+            router.push(`/`);
     }
 
 
