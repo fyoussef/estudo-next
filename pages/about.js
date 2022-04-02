@@ -31,7 +31,7 @@ export default function About({ data }) {
     )
 }
 
-export async function getServerSideProps(context) {
+export async function getStaticProps(context) {
 
 
     const request = await axios.get('https://api.github.com/users/fyoussef')
