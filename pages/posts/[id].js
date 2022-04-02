@@ -31,33 +31,17 @@ function Post({ posts }) {
 
 export default Post
 
-export async function getStaticProps({ params }) {
+export async function getServerSideProps(context){
 
-    // params => contem o post.id que foi retornado na func getStaticPaths
+    const { id } = context.query
 
     const post = await axios.get(`${process.env.URL}/api/getAllPosts`)
-
     const { posts } = post.data
 
     return {
-      props: {
-       posts: posts.find(post => post['_id'] === params.id)
-      },
+        props: {
+         posts: posts.find(post => post['_id'] === id)
+        },
     }
-}
 
-
-// This function gets called at build time
-// Funnção chamada para criar as rotas dinâmicas
-export async function getStaticPaths() {
-
-    // Pegar os posts
-    const post = await axios.get(`${process.env.URL}/api/getAllPosts`)
-    const { posts } = post.data
-
-    // Pegar os caminhos necessaŕios para PRÉ renderizar
-    const paths = posts.map(post => ({ params: {id: post['_id']} }))
-
-    // Pré renderizar apenas os post fornecidos
-    return { paths, fallback: false };
 }
