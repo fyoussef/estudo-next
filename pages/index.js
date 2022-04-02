@@ -1,8 +1,5 @@
-
 import axios from 'axios'
-import { useEffect, useState } from 'react';
-
-import { useRouter } from 'next/router';
+import { useState } from 'react';
 
 import Header from '../components/Header';
 import HomeSection from '../components/HomeSection'
